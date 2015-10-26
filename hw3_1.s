@@ -1,4 +1,4 @@
-#Parsing and outputting user-inputted strings in MIPS assembly language (MAL)
+#Read a positive decimal integer and compute values in MIPS assembly language (MAL)
 #Authors: Noah Tebben and Ylonka Machado
 #Inputs: A user-inputted integer
 #Outputs: 

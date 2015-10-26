@@ -1,5 +1,14 @@
-#Ylonka Machado
-#Noah Tebben
+#Parsing and outputting user-inputted strings in MIPS assembly language (MAL)
+#Authors: Noah Tebben and Ylonka Machado
+#Inputs: A user-inputted integer
+#Outputs: 
+	#1. Number of zeros in right half of binary equivalent of integer inputted
+	#2. Number of ones in left half of binary equivalent of integer inputted
+	#3. The highest power of 4 that evenly divides the integer 
+	#4. Smallest decimal digit in inputted integer
+#Lab Section: 1 (Ylonka) + 2 (Noah)
+#Revision History: 10/24 - File created and coded
+#10/25 - Program checked and formatted
 
 .data
 	msg: .asciiz "Please enter a positive integer: "

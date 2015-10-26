@@ -35,6 +35,7 @@
 		syscall
 		j loop_numbers
 
+	#assigning halves, counters, constant
 	divide_num:
 		move $t0, $v0
 		move $t8, $t0
@@ -58,16 +59,18 @@
 		#remainder
 		mfhi $t3
 		#if $t4 >= 16
-		bge $t4, 16, rightend
+		bge $t4, 16, last_right
 		#if $t3 != 0
-		bne $t3, 0, rightend
+		bne $t3, 0, last_right
 		#increment num of 0s
 		add $t2, $t2, 1
 
-	rightend:
+	#incrementing last right
+	last_right:
 		add $t4, $t4, 1
 		j rightside
 
+	#first left 
 	first_left:
 		move $t8, $t0
 		#if $t4 < 16
@@ -90,6 +93,7 @@
 		#increment num of 1s
 		add $t1, $t1, 1
 		
+	#incrementing last left digit
 	last_left:
 		add $t6, $t6, 1
 		j leftside
@@ -108,6 +112,7 @@
 	
 	#finding highest power of 4
 	four_power:	
+		#if $t8 < 4, smallest
 		blt $t8, 4, smallest
 		div $t8, $t7
 		mfhi $t4
@@ -118,6 +123,7 @@
 		add $t3, $t3, 1
 		j four_power
 	
+	#changing smallest digit
 	smallest:
 		move $t8, $t0
 		li $t4, 9 
@@ -136,11 +142,14 @@
 		#check if $t8 == 0
 		beq $t8, 0, output
 
+	#skipping digits if condition satisfied
 	digskip:
+		#if $t4 < $t5, dig_in_int
 		blt $t4, $t5, dig_in_int
 		move $t4, $t5
 		j dig_in_int
 
+	#printing output
 	output:
 		#number of 0s in right
 		li $v0, 4

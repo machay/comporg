@@ -2,17 +2,15 @@
 #Noah Tebben
 
 .data
-	msg: .asciiz "Enter a number: "
-	#printBinary: .asciiz "Binary equivalent is: "
-	msg1: .asciiz "The number of 0’s in the right half of the binary representation of the given integer = "
-	msg2: .asciiz "The number of 1’s in the left half of the binary representation of the given integer = "
-	msg3: .asciiz "The largest power of 4 that evenly divides the given integer = "
-	msg4: .asciiz "The value of the smallest digit in the decimal representation of the given integer = "
+	msg: .asciiz "Enter an integer: "
+	msg1: .asciiz "# of 0s in the right half = "
+	msg2: .asciiz "# of 1s in the left half =  "
+	msg3: .asciiz "Biggest power of 4 = "
+	msg4: .asciiz "Smallest decimal digit = "
 	linebreak: .asciiz "\n"
 	.text
-	.globl main
 
-	#Getting user input
+	#getting user input
 	main:
 		li $v0, 4
 		la $a0, msg
@@ -27,8 +25,8 @@
 		j loop_numbers
 
 	divide_num:
-		move $t9, $t0
 		move $t0, $v0
+		move $t9, $t0
 		#right half
 		li $t2, 0
 		#left half  
